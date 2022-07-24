@@ -8,11 +8,30 @@ Can also remove messages containing links to many NFT marketplaces.
 ================================================
 
 SETUP:
-- client.run("BOTTOKENHERE") where BOTTOKENHERE is your Bot Token
+- Have discord.py installed. (use the requirements.txt file to install that)
+- Go to https://discord.com/developers and create a discord bot application, create a bot, and copy its discord bot token if you have not already done so
+- Fork or download this source code
+- client.run("BOTTOKENHERE") where BOTTOKENHERE is your Discord Bot Token that you got from the Discord developer portal
 - client = commands.Bot(command_prefix = "nft!") where nft! would be the prefix you want
-- Have discord.py installed.
+-- When you invite the bot, the permissions needed is: Read Messages, Send Messages, Manage Messages, View Channel History, and Embed Links
 
-- When you invite the bot, the permissions needed is: Read Messages, Send Messages, Manage Messages, View Channel History, and Embed Links
+=================================================
+
+EXTRA INFO
+
+We are constantly updating the detection system to be able to stop Pro NFT Advertisements
+like stopping NFT market websites and NFT project discord servers.
+
+How it works is we have 2 blacklist.txt files so the bot can trigger different for each category.
+blacklist.txt is for the bot to block NFT market websites.
+blacklist2.txt is for the bot to block Pro NFT discord servers (like NFT project discord servers) and it responds differently.
+
+=================================================
+
+THANKS:
+
+Thank you to: https://github.com/RealSoerensen for helping out with this contribution.
+And have the Anti-NFT bot be better.
 
 =================================================
 
