@@ -8,6 +8,7 @@ Can also remove messages containing links to many NFT marketplaces.
 ================================================
 
 SETUP:
+- Install the required dependencies by writing "pip install -r requirements.txt" in the terminal.
 - client.run("BOTTOKENHERE") where BOTTOKENHERE is your Bot Token
 - client = commands.Bot(command_prefix = "nft!") where nft! would be the prefix you want
 - Have discord.py installed.
