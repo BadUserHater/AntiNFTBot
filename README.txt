@@ -8,7 +8,8 @@ Can also remove messages containing links to many NFT marketplaces.
 ================================================
 
 SETUP:
-- Have discord.py installed. (use the requirements.txt file to install that)
+
+- Have discord.py installed. ("pip install -r requirements.txt" in the terminal)
 - Go to https://discord.com/developers and create a discord bot application, create a bot, and copy its discord bot token if you have not already done so
 - Fork or download this source code
 - client.run("BOTTOKENHERE") where BOTTOKENHERE is your Discord Bot Token that you got from the Discord developer portal
@@ -17,7 +18,7 @@ SETUP:
 
 =================================================
 
-EXTRA INFO
+EXTRA INFO:
 
 We are constantly updating the detection system to be able to stop Pro NFT Advertisements
 like stopping NFT market websites and NFT project discord servers.
