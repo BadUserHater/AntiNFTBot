@@ -7,6 +7,7 @@ client.remove_command("help")
 
 @client.event
 async def on_ready():
+
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="NFT Advertisements."))
     print(f"{client.user} has connected to Discord!")
 
@@ -18,6 +19,15 @@ async def on_message(message):
         return
     if client.user.id == member.id:
         return
+
+    if message.content in blacklist or message.content in blacklist2:
+        embed = discord.Embed(title="NO NFT ADVERTISEMENTS ALLOWED", description=f"HEY {member.mention} NO NFT ADVERTISEMENTS IS ALLOWED HERE. NFTS are causing harm to the world. Learn more at nft!nfttruth", color=(40959))
+        embed.add_field(name="CASE DETAILS", value=f'NFT Advertiser Mention: {member.mention}\nNFT Advertising Type: NFT Website.', inline=False)
+        await message.channel.send(embed=embed)
+        await message.delete()
+        
+    await client.process_commands(message)
+
 
     if message.content in blacklist:
         embed = discord.Embed(title="NO NFT ADVERTISEMENTS ALLOWED",
@@ -84,5 +94,7 @@ async def nfttruth(ctx):
 if "__main__" == __name__:
     with open("blacklist.txt", "r") as f:
         blacklist = f.read().splitlines()
+    with open("blacklist2.txt", "r") as f:
+        blacklist2 = f.read().splitlines()
 
     client.run("TOKEN HERE")
