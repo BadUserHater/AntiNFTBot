@@ -1,13 +1,17 @@
 ANTI-NFT Bot Privacy Policy
-Last updated: July 23, 2022
+Last updated: July 31, 2022
 
+WHAT DATA DO YOU COLLECT
+Anti-NFT Bot does not store any data by default, however if you use **nft!punishenable**, your server ID will be collected.
 
-WHAT DATA DO YOU COLLECT:
-Anti-NFT Bot does not log, collect, or store any data. Once you invite the bot to your server, it is ready to search for any NFT advertisement links or any phrases relating to NFT advertisements.
+WHY IS THIS DATA NEEDED?
+The data is needed so the bot knows if a member should be punished if they send a NFT Advertisement in your server.
+
+HOW DO I REMOVE MY DATA?
+To remove the server ID it collected, then execute **nft!punishdisable**. If you kick the bot before doing this, then please reach out to the owner of the bot to remove your data.
 
 HOW MAY I CONTACT YOU FOR CONCERNS
 Reach to use at our support server at: https://discord.gg/NpRbKaFmJU
-If you are already banned from the server, email me at: idiotcreaturehater@gmail.com
 
 LINKS TO 3RD PARTY SITES.
 The website and bot may direct you to 3rd party sites that are not operated by us. We recommend reading the privacy policies on the sites you visit.
