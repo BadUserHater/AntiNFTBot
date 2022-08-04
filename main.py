@@ -1,12 +1,15 @@
 import discord
 from discord.ext import commands
 import sys
+import json
 
 client = commands.Bot(command_prefix="nft!")
 client.remove_command("help")
 
 @client.event
 async def on_ready():
+    data = read_json("punishment")
+    client.punishments = data["ActivePunishmentS"]
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="NFT Advertisements"))
     print("Bot Ready")
 
@@ -63,7 +66,7 @@ async def ping(ctx):
 async def info(ctx):
     embed = discord.Embed(title="ANTI-NFT Bot", description="Information about the Anti-NFT discord bot.", color=(40959))
     embed.add_field(name="GENERAL", value='CREATOR: Idiot Creature Hater#2255', inline=False)
-    embed.add_field(name="LINKS", value='Invite me: https://discord.com/api/oauth2/authorize?client_id=985998562573832262&permissions=274879310912&scope=bot\nSupport Server: https://discord.gg/xTfAYs7Kyg\nSource Code: https://github.com/BadUserHater/AntiNFTBot', inline=False)
+    embed.add_field(name="LINKS", value='Invite me: https://discord.com/api/oauth2/authorize?client_id=985998562573832262&permissions=1374390971590&scope=bot\nSupport Server: https://discord.gg/xTfAYs7Kyg\nSource Code: https://github.com/BadUserHater/AntiNFTBot', inline=False)
     embed.add_field(name="CREDITS/SOURCE", value='Orignal Creator: Idiot Creature Hater#2255\nOpen Source?: TRUE\nLicense: MIT\nSource Code: https://github.com/BadUserHater/AntiNFTBot', inline=False)
     await ctx.send(embed=embed)
 
