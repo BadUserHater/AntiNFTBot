@@ -11,7 +11,7 @@ async def on_ready():
     data = read_json("punishment")
     client.punishments = data["ActivePunishmentS"]
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="NFT Advertisements"))
-    print("Bot Ready")
+    print("Bot Is Ready To Stop Some NFT Advertisements")
 
 @client.event
 async def on_message(message):
@@ -26,7 +26,7 @@ async def on_message(message):
                 embed.set_footer(text="Punishment has been enables so the user has been banned")
                 await message.channel.send(embed=embed)
                 await message.delete()
-                await message.author.ban(reason="NFT Advertisements [Auto by Anti-NFT Bot]")
+                await message.author.ban(reason="[Auto] NFT Advertisements ")
             else:
                 embed = discord.Embed(title="NO NFT ADVERTISEMENTS ALLOWED", description=f"HEY {member.mention} NO NFT ADVERTISEMENTS IS ALLOWED HERE. NFTS are causing harm to the world. Learn more at nft!nfttruth", color=(40959))
                 embed.add_field(name="CASE DETAILS", value=f'NFT Advertiser Mention: {member.mention}\nNFT Advertising Type: NFT Website.', inline=False)
@@ -40,7 +40,7 @@ async def on_message(message):
                 embed.set_footer(text="Punishment has been enables so the user has been banned")
                 await message.channel.send(embed=embed)
                 await message.delete()
-                await message.author.ban(reason="NFT Advertisements [Auto by Anti-NFT Bot]")
+                await message.author.ban(reason="[Auto]NFT Advertisements")
             else:
                 embed = discord.Embed(title="NO NFT ADVERTISEMENTS ALLOWED", description=f"Hey {member.mention}, it seems like you are attempting to advertise a NFT based discord server. Well this server is protected by Anti-NFT Bot. Look at nft!nfttruth to find out the truth on NFTs", color=(40959))
                 embed.add_field(name="CASE DETAILS", value=f'NFT Advertiser Mention: {member.mention}\nNFT Advertising Type: Discord Server', inline=False)
@@ -87,7 +87,7 @@ async def say(ctx, *, question: commands.clean_content):
 @client.command()
 async def nfttruth(ctx):
     embed = discord.Embed(title="ANTI-NFT Bot", description="Here is the truth about NFTs", color=(40959))
-    embed.add_field(name="NFTs CAUSES HARM TO THE ENVIRONMENT", value='NFTs are making a bad impact to the world. Learn more about the truth of NFTs here: https://rickorford.com/8-reasons-to-not-invest-in-nfts/', inline=False)
+    embed.add_field(name="NFTS Are Causing Harm!", value='NFTs are making a bad impact to the world. Learn more about NFTs here: https://rickorford.com/8-reasons-to-not-invest-in-nfts/ and https://www.theverge.com/22310188/nft-explainer-what-is-blockchain-crypto-art-faq', inline=False)
     await ctx.send(embed=embed)
 
 if "__main__" == __name__:
@@ -106,7 +106,7 @@ async def punishenable(ctx):
     data = read_json("punishment")
     data["ActivePunishmentS"].append(ctx.guild.id)
     write_json(data, "punishment")
-    await ctx.send("The Punishment Module has been enabled. I will **now start** banning members if they send a NFT advertisement in this server")
+    await ctx.send("The Punishment Module has been enabled. I will **now start** banning members if i find out they send NFT advertisements in this server")
 
 @punishenable.error
 async def punishenable_error(ctx, error):
@@ -124,7 +124,7 @@ async def punishdisable(ctx):
     data = read_json("punishment")
     data["ActivePunishmentS"].remove(ctx.guild.id)
     write_json(data, "punishment")
-    await ctx.send("The Punishment Module has been **disabled**. I will **no longer be** banning members if they send a NFT advertisement in this server")
+    await ctx.send("The Punishment Module has been **disabled**. I will **no longer be** banning members if i find out they send NFT advertisements in this server")
 
 @punishdisable.error
 async def punishdisable_error(ctx, error):
@@ -157,7 +157,7 @@ def restart_program():
 @client.command()
 async def restart(ctx):
     if ctx.author.id in botstaff:
-        await ctx.send("Restarting... This may take some time.")
+        await ctx.send("Restarting... This should only take 1-5 minutes.")
         restart_program()
     else:
         await ctx.send("This command can only be used by the bot developers")
@@ -166,4 +166,4 @@ async def restart(ctx):
 
 
 
-client.run("BOTTOKENHERE")
+client.run("TOKEN HERE https://discord.com/developers/applications")
