@@ -166,4 +166,4 @@ async def restart(ctx):
 
 
 
-client.run("TOKEN HERE https://discord.com/developers/applications")
+client.run("TOKEN")
