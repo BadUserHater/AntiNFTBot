@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import sys
 import json
+import os
 
 client = commands.Bot(command_prefix="nft!")
 client.remove_command("help")
@@ -10,44 +11,57 @@ client.remove_command("help")
 async def on_ready():
     data = read_json("punishment")
     client.punishments = data["ActivePunishmentS"]
-    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="NFT Advertisements"))
-    print("Bot Ready")
+    await client.change_presence(status=discord.Status.online, activity=discord.Activity(type=discord.ActivityType.watching, name="NFT Advertisements"))
+    print("Bot is Ready to Stop Some NFT Advertisements")
 
 @client.event
 async def on_message(message):
     member = message.author
     if message.author.bot:
         return
-    if client.user.id != message.author.id:
-        if message.content in blacklist:
-            if message.guild.id in client.punishments:
-                embed = discord.Embed(title="NO NFT ADVERTISEMENTS ALLOWED", description=f"HEY {member.mention} NO NFT ADVERTISEMENTS IS ALLOWED HERE. NFTS are causing harm to the world. Learn more at nft!nfttruth", color=(40959))
-                embed.add_field(name="CASE DETAILS", value=f'NFT Advertiser Mention: {member.mention}\nNFT Advertising Type: NFT Website.', inline=False)
-                embed.set_footer(text="Punishment has been enables so the user has been banned")
-                await message.channel.send(embed=embed)
-                await message.delete()
-                await message.author.ban(reason="NFT Advertisements [Auto by Anti-NFT Bot]")
-            else:
-                embed = discord.Embed(title="NO NFT ADVERTISEMENTS ALLOWED", description=f"HEY {member.mention} NO NFT ADVERTISEMENTS IS ALLOWED HERE. NFTS are causing harm to the world. Learn more at nft!nfttruth", color=(40959))
-                embed.add_field(name="CASE DETAILS", value=f'NFT Advertiser Mention: {member.mention}\nNFT Advertising Type: NFT Website.', inline=False)
-                await message.channel.send(embed=embed)
-                await message.delete()
-        if message.content in blacklist2:
-            if message.guild.id in client.punishments:
-                embed = discord.Embed(title="NO NFT ADVERTISEMENTS ALLOWED", description=f"Hey {member.mention}, it seems like you are attempting to advertise a NFT based discord server. Well this server is protected by Anti-NFT Bot. Look at nft!nfttruth to find out the truth on NFTs", color=(40959))
-                embed.add_field(name="CASE DETAILS", value=f'NFT Advertiser Mention: {member.mention}\nNFT Advertising Type: Discord Server', inline=False)
-                embed.set_footer(text="If you are the owner of the server and believe this is a mistake and is Anti-NFT or not NFT based, contact the owner in our support server to appeal. (Avaliable in nft!info)")
-                embed.set_footer(text="Punishment has been enables so the user has been banned")
-                await message.channel.send(embed=embed)
-                await message.delete()
-                await message.author.ban(reason="NFT Advertisements [Auto by Anti-NFT Bot]")
-            else:
-                embed = discord.Embed(title="NO NFT ADVERTISEMENTS ALLOWED", description=f"Hey {member.mention}, it seems like you are attempting to advertise a NFT based discord server. Well this server is protected by Anti-NFT Bot. Look at nft!nfttruth to find out the truth on NFTs", color=(40959))
-                embed.add_field(name="CASE DETAILS", value=f'NFT Advertiser Mention: {member.mention}\nNFT Advertising Type: Discord Server', inline=False)
-                embed.set_footer(text="If you are the owner of the server and believe this is a mistake and is Anti-NFT or not NFT based, contact the owner in our support server to appeal. (Avaliable in nft!info)")
-                await message.channel.send(embed=embed)
-                await message.delete()
-        
+    msg = message.content
+    if any(word in msg for word in blacklist):
+        if message.guild.id in client.punishments:
+            embed = discord.Embed(title="NO NFT ADVERTISEMENTS ALLOWED", description=f"HEY {member.mention} NO NFT ADVERTISEMENTS IS ALLOWED HERE. NFTS are causing harm to the world. Learn more at nft!nfttruth", color=(40959))
+            embed.add_field(name="CASE DETAILS", value=f'NFT Advertiser Mention: {member.mention}\nNFT Advertising Type: NFT Website.', inline=False)
+            embed.set_footer(text="Punishment has been enables so the user has been banned")
+            await message.channel.send(embed=embed)
+            await message.delete()
+            await message.author.ban(reason="[Auto by Anti-NFT Bot] NFT Advertisements")
+        else:
+            embed = discord.Embed(title="NO NFT ADVERTISEMENTS ALLOWED", description=f"HEY {member.mention} NO NFT ADVERTISEMENTS IS ALLOWED HERE. NFTS are causing harm to the world. Learn more at nft!nfttruth", color=(40959))
+            embed.add_field(name="CASE DETAILS", value=f'NFT Advertiser Mention: {member.mention}\nNFT Advertising Type: NFT Website.', inline=False)
+            await message.channel.send(embed=embed)
+            await message.delete()
+    if any(word in msg for word in blacklist2):
+        if message.guild.id in client.punishments:
+            embed = discord.Embed(title="NO NFT ADVERTISEMENTS ALLOWED", description=f"Hey {member.mention}, it seems like you are attempting to advertise a NFT based discord server. Well this server is protected by Anti-NFT Bot. Look at nft!nfttruth to find out the truth on NFTs", color=(40959))
+            embed.add_field(name="CASE DETAILS", value=f'NFT Advertiser Mention: {member.mention}\nNFT Advertising Type: Discord Server', inline=False)
+            embed.set_footer(text="If you are the owner of the server and believe this is a mistake and is Anti-NFT or not NFT based, contact the owner in our support server to appeal. (Avaliable in nft!info)")
+            embed.set_footer(text="Punishment has been enables so the user has been banned")
+            await message.channel.send(embed=embed)
+            await message.delete()
+            await message.author.ban(reason="[Auto by Anti-NFT Bot] NFT Advertisements")
+        else:
+            embed = discord.Embed(title="NO NFT ADVERTISEMENTS ALLOWED", description=f"Hey {member.mention}, it seems like you are attempting to advertise a NFT based discord server. Well this server is protected by Anti-NFT Bot. Look at nft!nfttruth to find out the truth on NFTs", color=(40959))
+            embed.add_field(name="CASE DETAILS", value=f'NFT Advertiser Mention: {member.mention}\nNFT Advertising Type: Discord Server', inline=False)
+            embed.set_footer(text="If you are the owner of the server and believe this is a mistake and is Anti-NFT or not NFT based, contact the owner in our support server to appeal. (Avaliable in nft!info)")
+            await message.channel.send(embed=embed)
+            await message.delete()
+    if any(word in msg for word in blacklist3):
+        if message.guild.id in client.punishments:
+            embed = discord.Embed(title="NO NFT ADVERTISEMENTS ALLOWED", description=f"HEY {member.mention} NO NFT ADVERTISEMENTS IS ALLOWED HERE. NFTS are causing harm to the world. Learn more at nft!nfttruth", color=(40959))
+            embed.add_field(name="CASE DETAILS", value=f'NFT Advertiser Mention: {member.mention}\nNFT Advertising Type: NFT Website.', inline=False)
+            embed.set_footer(text="Punishment has been enables so the user has been banned")
+            await message.channel.send(embed=embed)
+            await message.delete()
+            await message.author.ban(reason="[Auto by Anti-NFT Bot] NFT Advertisements")
+        else:
+            embed = discord.Embed(title="NO NFT ADVERTISEMENTS ALLOWED", description=f"HEY {member.mention} NO NFT ADVERTISEMENTS IS ALLOWED HERE. NFTS are causing harm to the world. Learn more at nft!nfttruth", color=(40959))
+            embed.add_field(name="CASE DETAILS", value=f'NFT Advertiser Mention: {member.mention}\nNFT Advertising Type: NFT Website.', inline=False)
+            await message.channel.send(embed=embed)
+            await message.delete()
+
     await client.process_commands(message)
 
 @client.command()
@@ -87,16 +101,12 @@ async def say(ctx, *, question: commands.clean_content):
 @client.command()
 async def nfttruth(ctx):
     embed = discord.Embed(title="ANTI-NFT Bot", description="Here is the truth about NFTs", color=(40959))
-    embed.add_field(name="NFTs CAUSES HARM TO THE ENVIRONMENT", value='NFTs are making a bad impact to the world. Learn more about the truth of NFTs here: https://rickorford.com/8-reasons-to-not-invest-in-nfts/', inline=False)
+    embed.add_field(name="NFTs IS CAUSING HARM TO THE ENVIRONMENT", value='NFTs are making a bad impact to the world. Learn more about the truth of NFTs here: https://rickorford.com/8-reasons-to-not-invest-in-nfts/', inline=False)
     await ctx.send(embed=embed)
 
-if "__main__" == __name__:
-    with open("blacklist.txt", "r") as f:
-        blacklist = f.read().splitlines()
 
-if "__main__" == __name__:
-    with open("blacklist2.txt", "r") as f:
-        blacklist2 = f.read().splitlines()
+
+
 
 @client.command()
 @commands.has_permissions(administrator=True)
@@ -108,15 +118,6 @@ async def punishenable(ctx):
     write_json(data, "punishment")
     await ctx.send("The Punishment Module has been enabled. I will **now start** banning members if they send a NFT advertisement in this server")
 
-@punishenable.error
-async def punishenable_error(ctx, error):
-    if isinstance(error, commands.MissingPermissions):
-        await ctx.send('Sorry but you need the **Administrator** permission to use this command')
-    if isinstance(error, commands.BotMissingPermissions):
-        await ctx.send("Sorry but I need the **Ban Members** permission for this function to work.")
-    else:
-        raise error
-
 @client.command()
 @commands.has_permissions(administrator=True)
 async def punishdisable(ctx):
@@ -125,6 +126,15 @@ async def punishdisable(ctx):
     data["ActivePunishmentS"].remove(ctx.guild.id)
     write_json(data, "punishment")
     await ctx.send("The Punishment Module has been **disabled**. I will **no longer be** banning members if they send a NFT advertisement in this server")
+
+@punishenable.error
+async def punishenable_error(ctx, error):
+    if isinstance(error, commands.MissingPermissions):
+        await ctx.send('Sorry but you need the **Administrator** permission to use this command')
+    if isinstance(error, commands.BotMissingPermissions):
+        await ctx.send("Sorry but I need the **Ban Members** permission for this function to work.")
+    else:
+        raise error
 
 @punishdisable.error
 async def punishdisable_error(ctx, error):
@@ -142,6 +152,11 @@ def write_json(data, filename):
     with open(f"./punishment.json", "w") as file:
         json.dump(data, file, indent=4)
 
+blacklist = ["crypto.com/nft", "opensea.io", "niftygateway.com", "launchmynft.co", "jump.trade", "rarible.com", "binance.com", "superrare.com", "async.art", "knownorigin.io", "blockchainappfactory.com", "eggheadz.io", "mee6.xyz/nft", "renewable-earth.club", "mother-nature.nft", "filab.io", "www.odysseydao.com", "theredapefamily.com", "orcania.io", "www.atomverse.club", "bunny-buddies.com", "www.flooz.world", "earclubnft.com", "svs.gg", "desperateapewives.com", "www.billionaireclubnft.com", "kurto.io"]
+
+blacklist2 = ["discord.gg/mothernaturenft", "discord.gg/filab", "discord.gg/nft", "discord.gg/nfts", "discord.gg/nftpromo", "discord.gg/mollynft", "discord.gg/angryapesunitednft", "discord.gg/chaosclownz", "discord.gg/voodoo-warriors", "discord.gg/bvx", "discord.gg/flooz", "discord.gg/earc", "discord.gg/svsnft", "discord.gg/dapewives", "discord.gg/44vUJbEuE4", "discord.gg/vxajAY3YKt", "discord.gg/YzgjUUpmkf", "discord.gg/vvn2TkVXJw", "discord.gg/4Bya8nmpbC", "discord.gg/xX6SugCFBn", "discord.gg/z2bFtCJ8Tu", "discord.gg/pXCjGRxQaU", "discord.gg/ZeptbXM6S2", "discord.gg/nVqWPXeRXa", "discord.gg/uj3YZst", "discord.gg/FTERdSFCaf", "discord.gg/DsqPcJAYQT", "discord.gg/uweHDNdQrv", "discord.gg/xJnsPjAkDZ", "discord.gg/aSyjFg4jfP", "discord.gg/geZKHzWtu8", "discord.gg/FTTyyJ9Xu3", "discord.gg/gded98jmH8", "discord.gg/zJDRR5VKx4", "discord.gg/eGwdFsDKdh", "discord.gg/VWFtEpVc9Q", "discord.gg/75ArpFxPaF", "discord.gg/GJBVHbNfx7", "discord.gg/HxE754wj9r", "discord.gg/jKVr2UhNfr"]
+
+blacklist3 = ["twitter.com/FourImmortals", "www.instagram.com/filabltd", "www.facebook.com/FILabOfficial", "twitter.com/FOURIMMORTALS", "twitter.com/eghz_nft", "instagram.com/atmvrs", "twitter.com/TheRedApeFamily", "twitter.com/theredapefamily", "www.instagram.com/theredapefamily", "www.youtube.com/c/TheRedApeFamily", "twitter.com/atomverseNFT", "twitter.com/theatomverse", "twitter.com/thebunnybuddies", "twitter.com/flooz_inc", "www.instagram.com/flooz.inc", "twitter.com/EARClubNFT", "twitter.com/svsnft", "twitter.com/DApeWives", "twitter.com/partyapebc", "www.instagram.com/billionaireclubnft", "www.linkedin.com/company/billionaireclubnft"]
 
 
 

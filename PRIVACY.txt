@@ -1,20 +1,28 @@
 ANTI-NFT Bot Privacy Policy
-Last updated: July 31, 2022
+Last updated: October 4th, 2022
 
-WHAT DATA DO YOU COLLECT
-Anti-NFT Bot does not store any data by default, however if you use **nft!punishenable**, your server ID will be collected.
+==WHAT DATA DO YOU COLLECT==
+Anti-NFT Bot does not store any data by default, however if you use **nft!punishenable**, your server ID will be collected. If you decide to use the
+nft!setlogchannel command, it will collect your server id AND channel id you have set the logs channel to be set where the logs should be sent too
 
-WHY IS THIS DATA NEEDED?
-The data is needed so the bot knows if a member should be punished if they send a NFT Advertisement in your server.
+==WHY IS THIS DATA NEEDED?==
+This data is needed to operate the bot's settings. This includes:
+- If a user should be punished if an NFT website is sent to your server
+- Where the logs should be sent in your server
 
-HOW DO I REMOVE MY DATA?
-To remove the server ID it collected, then execute **nft!punishdisable**. If you kick the bot before doing this, then please reach out to the owner of the bot to remove your data.
+==HOW DO I REMOVE MY DATA?==
+To remove the server ID it collected from the nft!punishenable command, then execute **nft!punishdisable**. If you kick the bot before doing this, then please reach out to the owner of the bot to remove your data.
+To remove your server ID and channel ID from setting the logs channel, because the disable logs command does not work, you have to join our support server below, and talk to Idiot Creature Hater#2255
+in the #support-and-suggestions forum channel with your server ID so we can start the data removal process. If you do NOT provide your server id to support, we can not help you.
+https://discord.gg/nVs4rCNwyc
 
-HOW MAY I CONTACT YOU FOR CONCERNS
-Reach to use at our support server at: https://discord.gg/NpRbKaFmJU
+==HOW MAY I CONTACT YOU FOR SUPPORT OR CONCERNS?==
+Reach to us at our support server at: https://discord.gg/nVs4rCNwyc
 
-LINKS TO 3RD PARTY SITES.
-The website and bot may direct you to 3rd party sites that are not operated by us. We recommend reading the privacy policies on the sites you visit.
+==LINKS TO 3RD PARTY SITES.==
+The website and bot may direct you to 3rd party sites that are not operated or owned by us. We recommend reading the privacy policies on the sites you visit.
 
-DISCLAIMER
-The creator has the right to change this privacy policy without any warning.
+==DISCLAIMER==
+The creator has the right to change this privacy policy AT ANY TIME without any warning. It is your job to keep an eye on this privacy policy
+We do not track messages sent in your server. Please do not complain to us if you think we are "spying" on you. At Idiot Creature Hater Studios,
+we value your privacy.
