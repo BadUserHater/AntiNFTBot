@@ -1,18 +1,19 @@
 SOURCE CODE FOR THE ANTI-NFT BOT
 CREATED BY: Idiot Creature Hater#2255 on Discord.
-For Discord.py 1.7.x
+
+THIS CODE HAS BEEN REWRITTEN FOR DISCORD.PY 2.0 AS DISCORD.PY 1.7.x MAY STOP WORKING IN 2023.
 
 Anti-NFT bot is a open source discord.py bot that stops links to NFT websites, blocks phrases relating to NFT advertising, and
 even NFT based discord servers. Can also remove messages containing links to many NFT marketplaces.
-
 This version also lets you set in your server if you want the bot to auto-ban members who sends NFT advertisements or not.
 
-BEFORE OPENING AN ISSUE, READ THE README BELOW AND THE OPEN SOURCE FAQ HERE: https://meowbahhbot.dscdevstudios.xyz/antinftbot.html
+NOTE: To use this source code, you need the Message content intent, if your bot is unverified, then turn it on in the developer portal
 
 ================================================
 SETUP:
 - Fork or download this source code
 - Go to https://discord.com/developers/applications and create a discord bot application, create a bot, and copy its discord bot token if you have not already done so
+- Enable the Message Content Intent.
 - client.run("BOTTOKENHERE") where BOTTOKENHERE is your Discord Bot Token that you got from the Discord developer portal (Located at the bottom of the code)
 - client = commands.Bot(command_prefix = "nft!") where nft! would be the prefix you want
 - SETTING UP STAFF
@@ -53,7 +54,7 @@ Crediting me is also advised.
 ORIGNAL LINKS:
 ORIGNAL BOT: https://discord.com/oauth2/authorize?client_id=985998562573832262&permissions=277295262918&scope=bot%20applications.commands
 SUPPORT SERVER: https://discord.gg/NpRbKaFmJU
-WEBSITE: https://meowbahhbot.dscdevstudios.xyz/antinftbot.html
+WEBSITE: https://meowbahhbotsite.glitch.me
 
 DEVELOPER'S LINKS (You can support me just by following me)
 YOUTUBE CHANNEL: https://www.youtube.com/c/TheIdiotCreatureHater
