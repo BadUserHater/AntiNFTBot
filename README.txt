@@ -1,7 +1,9 @@
 SOURCE CODE FOR THE ANTI-NFT BOT
 CREATED BY: Idiot Creature Hater#2255 on Discord.
 
-THIS CODE HAS BEEN REWRITTEN FOR DISCORD.PY 2.0 AS DISCORD.PY 1.7.x MAY STOP WORKING IN 2023.
+WARNING: THIS SOURCE CODE HAS BEEN DISCONTINUED! IF YOU WISH TO SELF-HOST THIS BOT, YOU ARE ON YOUR OWN!
+
+THIS CODE HAS BEEN REWRITTEN FOR DISCORD.PY 2.0 AS DISCORD.PY 1.7.x MAY HAVE STOPPED WORKING IN 2023.
 
 Anti-NFT bot is a open source discord.py bot that stops links to NFT websites, blocks phrases relating to NFT advertising, and
 even NFT based discord servers. Can also remove messages containing links to many NFT marketplaces.
@@ -64,3 +66,6 @@ GAMEJOLT: https://gamejolt.com/@IdiotCreatureHater
 DISCORD SERVER: https://discord.gg/nVs4rCNwyc
 SUBREDDIT: https://www.reddit.com/r/BadUserHaters/
 TIKTOK: https://www.tiktok.com/@theidiotcreaturehater
+
+IdiotAI API is made by Idiot Creature Hater Studios 2022-2023
+Idiot Creature Hater Studios 2021-2023
